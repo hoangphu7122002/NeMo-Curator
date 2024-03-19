@@ -177,14 +177,26 @@ class PiiDeidentifier(object):
 
     @staticmethod
     def from_yaml_file(path: Union[Path, str]):
+        """
+        Initializes a PiiDeidentifier from a YAML file configuration.
+        Args:
+            path:
+
+        Returns:
+
+        """
         with open(path) as f:
             return PiiDeidentifier.from_config(yaml.safe_load(f))
 
     @staticmethod
     def from_default_config():
+        """
+        Initializes a PiiDeidentifier with default configuration
+        Returns:
+
+        """
         return PiiDeidentifier(
-            PiiDeidentifier.DEFAULT_LANGUAGE,
-            supported_entities=SUPPORTED_ENTITIES, anonymize_action='replace'
+            DEFAULT_LANGUAGE, supported_entities=SUPPORTED_ENTITIES, anonymize_action='replace'
         )
 
     def list_supported_entities(self):
